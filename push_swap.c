@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 00:02:13 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/17 22:31:25 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/18 05:40:32 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	check_double(int *tableu, int len)
 int	main(int argc, char *argv[])
 {
 	int	len;
-	t_list	*tableu;
+	t_list	*stack_a;
+	t_list 	*stack_b;
 	int	k;
 
 	len = 0;
@@ -47,17 +48,25 @@ int	main(int argc, char *argv[])
 		len = number_of_arg(argc, argv);
 		if (len >= 2)
 		{
-			tableu = alloced_list(len);
-			convert_int(tableu->stack, argc, argv);
-			check_double(tableu->stack, len);
-			check_sort(tableu, len);
-			//k = len - 1;
-			k = 0;
-			while (k < len)
-			{
-				printf(" %d ",tableu->stack[k]);
-				k++;
-			}
+			stack_a = alloced_list(len);
+			stack_b = alloced_list(len);
+			create_stack_a(stack_a->stack, argc, argv);
+			check_double(stack_a->stack, len);
+			check_sort(stack_a,stack_b, len);
+			// //k = len - 1;
+			k = 3;
+			// while (k < len)
+			// {
+			// 	printf("\n[pb %d] k(%d) \n",stack_b->stack[k],k);
+			// 	k++;
+			// }
+			// k = stack_b->index;
+			// printf("----\n");
+			// while (k < len)
+			// {
+			// 	printf("\n[pa %d] \n",stack_a->stack[k]);
+			// 	k++;
+			// }
 		}
 		else
 			write(2,"Error\n",6);

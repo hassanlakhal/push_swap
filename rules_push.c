@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils1.c                                           :+:      :+:    :+:   */
+/*   rules_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 23:32:47 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/18 05:26:46 by hlakhal-         ###   ########.fr       */
+/*   Created: 2023/02/18 01:28:43 by hlakhal-          #+#    #+#             */
+/*   Updated: 2023/02/18 05:33:59 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*alloced_list(int size)
+void	push_b(t_list *stack_a, t_list *stack_b)
 {
-	t_list	*list;
-
-	list = ft_calloc(sizeof(t_list),1);
-	list->stack =ft_calloc(sizeof(int) , size);
-	return (list);
+	static int top;
+	if (!stack_b->index)
+		return ;
+	stack_b->stack[--stack_b->index] = stack_a->stack[top++];
+	stack_b->top = top;
+	write(1,"pb\n",3);
 }
 
-void	create_stack_b(t_list *stack_b, int size)
+void	push_a(t_list *stack_a, t_list *stack_b)
 {
-	stack_b = alloced_list(size);
+
+	if (!stack_b->index)
+		return ;
+	stack_a->stack[--stack_b->index] = stack_b->stack[stack_b->top++];
+	write(1,"pa\n",3);
 }

@@ -6,19 +6,20 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 21:20:55 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/17 05:55:38 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/18 05:36:49 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_sort(t_list *tableu, int a)
+void	check_sort(t_list *tableu,t_list *stack_b, int a)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 1;
+	stack_b->index = a;
 	while (i < a - 1)
 	{
 		if (tableu->stack[i] < tableu->stack[i + 1])
@@ -38,6 +39,17 @@ void	check_sort(t_list *tableu, int a)
 			swap_a(tableu);
 		else if (a == 3)
 			sorte_3(tableu,a);
+		else if (a == 4)
+		{
+			swap_a(tableu);
+			push_b(tableu,stack_b);
+			push_b(tableu,stack_b);
+			push_b(tableu,stack_b);
+			push_a(tableu,stack_b);
+			push_a(tableu,stack_b);
+			push_a(tableu,stack_b);
+		}
+
 	}
 }
 
@@ -81,7 +93,7 @@ void	check_string(char *str)
 	}
 }
 
-int	*convert_int(int *tableu, int argc, char *argv[])
+int	*create_stack_a(int *tableu, int argc, char *argv[])
 {
 	int		i;
 	int		j;
