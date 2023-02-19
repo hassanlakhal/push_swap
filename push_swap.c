@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 00:02:13 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/19 01:45:20 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/19 02:15:14 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	main(int argc, char *argv[])
 			convert_int(stack_a->stack, argc, argv,len);
 			check_double(stack_a->stack, len);
 			check_sort(stack_a,stack_b);
+			//affiche(stack_a);
 		}
 		else
 			write(2,"Error\n",6);

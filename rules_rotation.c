@@ -6,13 +6,13 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 01:34:22 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/18 23:32:19 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/19 02:16:02 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rrotation_a(t_list *stack_a, int size)
+void	rrotation(t_list *list,char c)
 {
 	int	k;
 	int	j;
@@ -20,27 +20,30 @@ void	rrotation_a(t_list *stack_a, int size)
 
 	k = 0;
 	j = 1;
-	tab = malloc(sizeof(int) * size);
-	while (k < size - 1)
+	tab = malloc(sizeof(int) * list->index);
+	while (k < list->index - 1)
 	{
-		tab[k] = stack_a->stack[j];
+		tab[k] = list->stack[j];
 		k++;
 		j++;
 	}
-	tab[size - 1] = stack_a->stack[0];
+	tab[list->index - 1] = list->stack[0];
 	k = 0;
 	j = 0;
-	while (j < size)
+	while (j < list->index)
 	{
-		stack_a->stack[j] = tab[k];
+		list->stack[j] = tab[k];
 		k++;
 		j++;
 	}
 	free(tab);
-	write(1, "rra\n", 4);
+	if (c == 'a')
+		write(1, "rra\n", 4);
+	else if (c == 'b')
+		write(1, "rrb\n", 4);
 }
 
-void rotation_a(t_list *stack_a, int size)
+void rotation(t_list *list, char c)
 {
 	int	k;
 	int	j;
@@ -48,23 +51,26 @@ void rotation_a(t_list *stack_a, int size)
 
 	k = 1;
 	j = 0;
-	tab = malloc(sizeof(int) * size);
+	tab = malloc(sizeof(int) * list->index);
 	j = 0;
-	while (j < size - 1)
+	while (j < list->index - 1)
 	{
-		tab[k] = stack_a->stack[j];
+		tab[k] = list->stack[j];
 		k++;
 		j++;
 	}
-	tab[0] = stack_a->stack[j];
+	tab[0] = list->stack[j];
 	k = 0;
 	j = 0;
-	while (j < size)
+	while (j < list->index)
 	{
-		stack_a->stack[j] = tab[k];
+		list->stack[j] = tab[k];
 		k++;
 		j++;
 	}
 	free(tab);
-	write(1,"ra\n",3);
+	if (c == 'a')
+		write(1, "ra\n", 3);
+	else if (c == 'b')
+		write(1, "rb\n", 3);
 }

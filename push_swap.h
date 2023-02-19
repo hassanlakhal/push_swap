@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 23:58:40 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/19 01:26:42 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/19 02:05:49 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int		*convert_int(int *tableu, int argc, char *argv[],int k);
 t_list	*alloced_list(int size);
 void	swap_a(t_list *stack_a);
 void	swap_b(t_list *stack_b);
-void	rotation_a(t_list *stack_a, int size);
-void rrotation_a(t_list *stack_a, int size);
+void	rotation(t_list *stack_a,char c);
+void rrotation(t_list *list,char c);
 void sorte_3(t_list *list,int size);
 void	push(t_list *stack_a, t_list *stack_b,char c);
 #endif
