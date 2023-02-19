@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 01:34:22 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/19 02:16:02 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/19 02:36:05 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	rrotation(t_list *list,char c)
 
 	k = 0;
 	j = 1;
+	if (!(list->index - 1))
+		return ;
 	tab = malloc(sizeof(int) * list->index);
 	while (k < list->index - 1)
 	{
@@ -51,6 +53,8 @@ void rotation(t_list *list, char c)
 
 	k = 1;
 	j = 0;
+	if (!(list->index - 1))
+		return ;
 	tab = malloc(sizeof(int) * list->index);
 	j = 0;
 	while (j < list->index - 1)
