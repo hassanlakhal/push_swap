@@ -6,13 +6,13 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 01:34:22 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/17 22:39:20 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/18 23:32:19 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotation_a(t_list *stack_a, int size)
+void	rrotation_a(t_list *stack_a, int size)
 {
 	int	k;
 	int	j;
@@ -37,10 +37,10 @@ void	rotation_a(t_list *stack_a, int size)
 		j++;
 	}
 	free(tab);
-	write(1, "ra\n", 3);
+	write(1, "rra\n", 4);
 }
 
-void rrotation_a(t_list *stack_a, int size)
+void rotation_a(t_list *stack_a, int size)
 {
 	int	k;
 	int	j;
@@ -66,5 +66,5 @@ void rrotation_a(t_list *stack_a, int size)
 		j++;
 	}
 	free(tab);
-	write(1,"rra\n",4);
+	write(1,"ra\n",3);
 }

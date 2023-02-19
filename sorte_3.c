@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 02:51:01 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/17 22:34:31 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/18 23:46:24 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,25 @@ void	sorte_3(t_list *list, int size)
 	pos_min = position_min_number(list->stack, size);
 	pos_max = position_max_number(list->stack, size);
 	if (pos_max == 2 && pos_min == 1)
-		swap_a(list);
+		rotation_a(list, size);
 	else if (pos_max == 1 && pos_min == 2)
+	{
 		rrotation_a(list, size);
+		swap_a(list);
+
+	}
 	else if (pos_max == 0 && pos_min == 2)
 	{
 		rotation_a(list, size);
 		swap_a(list);
 	}
 	else if (pos_max == 1 && pos_min == 0)
-	{
 		rrotation_a(list, size);
-		swap_a(list);
-	}
 	else if (pos_max == 0 && pos_min == 1)
+		swap_a(list);
+	else if (pos_max == 2 && pos_min == 0)
 	{
-		rrotation_a(list, size);
-		rrotation_a(list, size);
+		rotation_a(list, size);
+		swap_a(list);
 	}
 }

@@ -6,50 +6,43 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 21:20:55 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/18 05:36:49 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/19 01:44:46 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_sort(t_list *tableu,t_list *stack_b, int a)
+void	check_sort(t_list *tableu,t_list *stack_b)
 {
 	int	i;
 	int	j;
 
-	i = 0;
+	i = tableu->index - 1;
 	j = 1;
-	stack_b->index = a;
-	while (i < a - 1)
+	while (i > 0)
 	{
-		if (tableu->stack[i] < tableu->stack[i + 1])
+		if (tableu->stack[i] < tableu->stack[i - 1])
 			j = 0;
 		else
 		{
 			j = 1;
 			break ;
 		}
-		i++;
+		i--;
 	}
 	if (!j)
 		return ;
 	else
 	{
-		if (a == 2)
+		if (tableu->index == 2)
 			swap_a(tableu);
-		else if (a == 3)
-			sorte_3(tableu,a);
-		else if (a == 4)
+		else if (tableu->index == 3)
+			sorte_3(tableu,tableu->index);
+		else if (tableu->index == 4)
 		{
+			push(tableu,stack_b,'b');
 			swap_a(tableu);
-			push_b(tableu,stack_b);
-			push_b(tableu,stack_b);
-			push_b(tableu,stack_b);
-			push_a(tableu,stack_b);
-			push_a(tableu,stack_b);
-			push_a(tableu,stack_b);
 		}
-
 	}
 }
 
@@ -93,13 +86,11 @@ void	check_string(char *str)
 	}
 }
 
-int	*create_stack_a(int *tableu, int argc, char *argv[])
+int	*convert_int(int *tableu, int argc, char *argv[],int k)
 {
 	int		i;
 	int		j;
 	char	**str;
-	int k;
-	k = 0;
 
 	i = 1;
 	j = 0;
@@ -115,8 +106,8 @@ int	*create_stack_a(int *tableu, int argc, char *argv[])
 		while (str[j])
 		{
 			check_string(str[j]);
-			tableu[k] = ft_atoi(str[j]);
-			k++;
+			tableu[k - 1] = ft_atoi(str[j]);
+			k--;
 			j++;
 		}
 		i++;

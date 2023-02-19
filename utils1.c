@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 23:32:47 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/18 05:26:46 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/19 01:13:59 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,8 @@ t_list	*alloced_list(int size)
 {
 	t_list	*list;
 
-	list = ft_calloc(sizeof(t_list),1);
-	list->stack =ft_calloc(sizeof(int) , size);
+	list = malloc(sizeof(t_list));
+	list->stack = malloc(sizeof(int) * size);
+	list->index = 0;
 	return (list);
-}
-
-void	create_stack_b(t_list *stack_b, int size)
-{
-	stack_b = alloced_list(size);
 }
