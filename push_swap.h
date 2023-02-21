@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 23:58:40 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/19 02:05:49 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/21 07:09:40 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ void	rotation(t_list *stack_a,char c);
 void rrotation(t_list *list,char c);
 void sorte_3(t_list *list,int size);
 void	push(t_list *stack_a, t_list *stack_b,char c);
+void sorte_4(t_list *list_a,t_list *list_b);
 #endif
