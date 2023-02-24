@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:39:53 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/23 00:30:14 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/24 01:55:28 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,17 @@ void	quick_sorte(int *table, int low, int high)
 	}
 }
 
-int	*liste_sorte(int *list, int size)
+int	*liste_sorte(int *list, int size, t_data *data)
 {
 	int	*table;
 	int	i;
-
+	data->start = 0;
+	data->end = 0;
+	data->offset = (size) / 5;
+	data->mid = (((size)) / 2) + 1;
+	data->start = data->mid - data->offset;
+	data->end = data->mid + data->offset;
+	data->size = size - 1;
 	table = malloc(sizeof(int) * size);
 	i = size;
 	while (i >= 0)

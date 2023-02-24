@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 00:06:15 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/23 13:11:31 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/24 02:18:23 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,49 +27,84 @@ int	if_exit(t_list *a, int table[], int start, int end)
 	}
 	return (0);
 }
-void	afficage(int *tab)
+
+static int	position_max_number(int *table, int size)
 {
 	int	i;
+	int	k;
+	int	pos;
 
+	pos = 0;
 	i = 0;
-	while (i < 16)
+	k = table[0];
+	while (i < size)
 	{
-		printf("%d --> [%d] ", tab[i], i);
+		if (table[i] > k)
+		{
+			pos = i;
+			k = table[i];
+		}
 		i++;
 	}
+	return (pos);
 }
+
+void	function_help(t_list *list_a, t_list *list_b)
+{
+	int	pos_max;
+
+	pos_max = position_max_number(list_b->stack, list_b->index);
+	while (list_b->index != 0)
+	{
+		pos_max = position_max_number(list_b->stack, list_b->index);
+		if (pos_max > (list_b->index / 2) + 1)
+		{
+			if (pos_max == list_b->index - 1)
+				push(list_b, list_a, 'a');
+			else
+				rotation(list_b, 'b');
+		}
+		else
+		{
+			if (pos_max == list_b->index - 1)
+				push(list_b, list_a, 'a');
+			else
+				rrotation(list_b, 'b');
+		}
+	}
+}
+
+void	function_help_1(t_list *list_a, t_list *list_b, t_data *data, int tab[])
+{
+	while (if_exit(list_a, tab, data->start, data->end))
+	{
+		if (list_a->stack[list_a->index - 1] >= tab[data->start]
+			&& list_a->stack[list_a->index - 1] <= tab[data->end])
+		{
+			push(list_a, list_b, 'b');
+			if (list_b->stack[list_b->index - 1] < data->mid)
+				rotation(list_b, 'b');
+		}
+		else
+			rotation(list_a, 'a');
+	}
+}
+
 void	big_sorte(t_list *list_a, t_list *list_b)
 {
-	int	*tab;
-	int	start;
-	int	end;
-	int	mid;
-	int	offset;
-	int	size;
+	t_data	data;
+	int		*tab;
 
-	start = 0;
-	end = 0;
-	tab = liste_sorte(list_a->stack, list_a->index);
-	offset = (list_a->index) / 5;
-	mid = (((list_a->index)) / 2) + 1;
-	start = mid - offset;
-	end = mid + offset;
-	size = list_a->index - 1;
+	tab = liste_sorte(list_a->stack, list_a->index, &data);
 	while (list_a->index != 0)
 	{
-		while (if_exit(list_a, tab, start, end))
-		{
-			if (list_a->stack[list_a->index - 1] >= tab[start]
-				&& list_a->stack[list_a->index - 1] <= tab[end])
-					push(list_a, list_b, 'b');
-			else
-				rotation(list_a, 'a');
-		}
-		start -= offset;
-		end += offset;
-		if (start < 0)
-			start = 0;
-		if (end > size)
-			end = size;
+		function_help_1(list_a, list_b, &data, tab);
+		data.start -= data.offset;
+		data.end += data.offset;
+		if (data.start < 0)
+			data.start = 0;
+		if (data.end > data.size)
+			data.end = data.size;
 	}
+	function_help(list_a, list_b);
 }

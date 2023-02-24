@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 23:58:40 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/23 00:07:06 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/24 01:52:41 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ typedef struct t_list_stack_a
 	int	*stack;
 	int	index;
 }		t_list;
+typedef struct intfo
+{
+	int	start;
+	int	end;
+	int	mid;
+	int	offset;
+	int	size;
+}t_data;
+
 void	check_sort(t_list *tableu, t_list *stack_b);
 int		number_of_arg(int cont, char **str);
 void	check_string(char *str);
@@ -36,5 +45,5 @@ void	push(t_list *stack_a, t_list *stack_b,char c);
 void sorte_4(t_list *list_a,t_list *list_b);
 void sorte_5(t_list *list_a,t_list *list_b);
 void big_sorte(t_list *list_a, t_list *list_b);
-int	*liste_sorte(int *list, int size);
+int	*liste_sorte(int *list, int size, t_data *data);
 #endif
