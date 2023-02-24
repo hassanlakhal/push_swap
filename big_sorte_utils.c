@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:39:53 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/24 01:55:28 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/24 10:32:40 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,16 @@ void	quick_sorte(int *table, int low, int high)
 	}
 }
 
-int	*liste_sorte(int *list, int size, t_data *data)
+int	*liste_sorte(int *list, int size, t_data *data, int arg)
 {
 	int	*table;
 	int	i;
 	data->start = 0;
 	data->end = 0;
-	data->offset = (size) / 5;
+	if (arg == 100)
+		data->offset = (size) / 5;
+	else if (arg == 500)
+		data->offset = (size) / 11;
 	data->mid = (((size)) / 2) + 1;
 	data->start = data->mid - data->offset;
 	data->end = data->mid + data->offset;

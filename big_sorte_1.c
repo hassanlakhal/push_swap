@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   big_sorte.c                                        :+:      :+:    :+:   */
+/*   big_sorte_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 00:06:15 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/24 10:28:46 by hlakhal-         ###   ########.fr       */
+/*   Created: 2023/02/24 10:21:02 by hlakhal-          #+#    #+#             */
+/*   Updated: 2023/02/24 10:33:09 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include"push_swap.h"
 
-int	if_exit(t_list *a, int table[], int start, int end)
+static int	if_exit(t_list *a, int table[], int start, int end)
 {
 	int	i;
 	int	j;
@@ -49,7 +49,7 @@ static int	position_max_number(int *table, int size)
 	return (pos);
 }
 
-void	function_help(t_list *list_a, t_list *list_b)
+static void	function_help(t_list *list_a, t_list *list_b)
 {
 	int	pos_max;
 
@@ -74,7 +74,7 @@ void	function_help(t_list *list_a, t_list *list_b)
 	}
 }
 
-void	function_help_1(t_list *list_a, t_list *list_b, t_data *data, int tab[])
+static void	function_help_1(t_list *list_a, t_list *list_b, t_data *data, int tab[])
 {
 	while (if_exit(list_a, tab, data->start, data->end))
 	{
@@ -90,21 +90,21 @@ void	function_help_1(t_list *list_a, t_list *list_b, t_data *data, int tab[])
 	}
 }
 
-void	big_sorte(t_list *list_a, t_list *list_b)
+void	big_sorte_1(t_list *list_a, t_list *list_b)
 {
-	t_data	data;
+	t_data	data_1;
 	int		*tab;
 
-	tab = liste_sorte(list_a->stack, list_a->index, &data,100);
+	tab = liste_sorte(list_a->stack, list_a->index, &data_1,500);
 	while (list_a->index != 0)
 	{
-		function_help_1(list_a, list_b, &data, tab);
-		data.start -= data.offset;
-		data.end += data.offset;
-		if (data.start < 0)
-			data.start = 0;
-		if (data.end > data.size)
-			data.end = data.size;
+		function_help_1(list_a, list_b, &data_1, tab);
+		data_1.start -= data_1.offset;
+		data_1.end += data_1.offset;
+		if (data_1.start < 0)
+			data_1.start = 0;
+		if (data_1.end > data_1.size)
+			data_1.end = data_1.size;
 	}
 	function_help(list_a, list_b);
 }

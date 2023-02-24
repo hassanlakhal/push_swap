@@ -6,7 +6,7 @@
 #    By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 00:01:41 by hlakhal-          #+#    #+#              #
-#    Updated: 2023/02/23 00:07:57 by hlakhal-         ###   ########.fr        #
+#    Updated: 2023/02/24 10:31:51 by hlakhal-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = push_swap
 
 SRCS = push_swap.c check_arg.c utils1.c rules_swap.c rules_rotation.c\
 		sorte_3.c rules_push.c sorte_4.c sorte_5.c big_sorte_utils.c big_sorte.c\
-		
+		big_sorte_1.c
+
 
 CC		= cc
 

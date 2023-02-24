@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 21:20:55 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/24 00:47:08 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/24 10:34:25 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	check_sort(t_list *tableu,t_list *stack_b)
 			sorte_5(tableu,stack_b);
 		else if(tableu->index >= 6 && tableu->index <= 100)
 			big_sorte(tableu,stack_b);
+		else if(tableu->index >= 6 && tableu->index <= 500)
+			big_sorte_1(tableu,stack_b);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 23:58:40 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/24 01:52:41 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/24 10:34:44 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void	push(t_list *stack_a, t_list *stack_b,char c);
 void sorte_4(t_list *list_a,t_list *list_b);
 void sorte_5(t_list *list_a,t_list *list_b);
 void big_sorte(t_list *list_a, t_list *list_b);
-int	*liste_sorte(int *list, int size, t_data *data);
+int	*liste_sorte(int *list, int size, t_data *data, int arg);
+void	big_sorte_1(t_list *list_a, t_list *list_b);
 #endif
