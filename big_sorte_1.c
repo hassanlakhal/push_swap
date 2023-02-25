@@ -6,11 +6,11 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 10:21:02 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/24 10:33:09 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/25 02:20:26 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include "push_swap.h"
 
 static int	if_exit(t_list *a, int table[], int start, int end)
 {
@@ -49,32 +49,68 @@ static int	position_max_number(int *table, int size)
 	return (pos);
 }
 
-static void	function_help(t_list *list_a, t_list *list_b)
+int	index_1(int content, int *tab, int size)
 {
-	int	pos_max;
+	int	i;
 
-	pos_max = position_max_number(list_b->stack, list_b->index);
-	while (list_b->index != 0)
+	i = 0;
+	while (i < size)
+	{
+		if (tab[i] == content)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+static void	function_help(t_list *list_a, t_list *list_b, int *tab)
+{
+	static int	i;
+	int			pos_max;
+	int			pos_maxa;
+	int			size;
+
+	size = list_b->index;
+	while (list_b->index)
 	{
 		pos_max = position_max_number(list_b->stack, list_b->index);
-		if (pos_max > (list_b->index / 2) + 1)
+		pos_maxa = position_max_number(list_a->stack, list_a->index);
+		if ((pos_max == list_b->index - 1 && !i)
+			|| index_1(list_b->stack[list_b->index - 1], tab,
+				size) == index_1(list_a->stack[list_a->index - 1], tab, size)
+			- 1)
 		{
-			if (pos_max == list_b->index - 1)
-				push(list_b, list_a, 'a');
-			else
-				rotation(list_b, 'b');
+			push(list_b, list_a, 'a');
+			i = 1;
+		}
+		else if (i && (index_1(list_a->stack[0], tab,
+						size) == index_1(list_a->stack[list_a->index - 1],
+						tab, size) - 1))
+			rrotation(list_a, 'a');
+		else if (i && (!pos_maxa || list_b->stack[list_b->index
+					- 1] > list_a->stack[0]))
+		{
+			push(list_b, list_a, 'a');
+			rotation(list_a, 'a');
 		}
 		else
 		{
-			if (pos_max == list_b->index - 1)
-				push(list_b, list_a, 'a');
+			if (pos_max > (list_b->index / 2) + 1)
+				rotation(list_b, 'b');
 			else
 				rrotation(list_b, 'b');
 		}
 	}
+	pos_max = position_max_number(list_a->stack, list_a->index);
+	while (list_a->stack[0]!= list_a->stack[pos_max])
+	{
+		rrotation(list_a,'a');
+		pos_max = position_max_number(list_a->stack, list_a->index);
+	}
 }
 
-static void	function_help_1(t_list *list_a, t_list *list_b, t_data *data, int tab[])
+static void	function_help_1(t_list *list_a, t_list *list_b, t_data *data,
+		int tab[])
 {
 	while (if_exit(list_a, tab, data->start, data->end))
 	{
@@ -95,7 +131,7 @@ void	big_sorte_1(t_list *list_a, t_list *list_b)
 	t_data	data_1;
 	int		*tab;
 
-	tab = liste_sorte(list_a->stack, list_a->index, &data_1,500);
+	tab = liste_sorte(list_a->stack, list_a->index, &data_1, 500);
 	while (list_a->index != 0)
 	{
 		function_help_1(list_a, list_b, &data_1, tab);
@@ -106,5 +142,5 @@ void	big_sorte_1(t_list *list_a, t_list *list_b)
 		if (data_1.end > data_1.size)
 			data_1.end = data_1.size;
 	}
-	function_help(list_a, list_b);
+	function_help(list_a, list_b, tab);
 }
