@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 23:58:40 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/24 10:34:44 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:37:44 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct intfo
 	int	mid;
 	int	offset;
 	int	size;
+	int			m;
+	int			ma;
 }t_data;
 
 void	check_sort(t_list *tableu, t_list *stack_b);
@@ -47,4 +49,7 @@ void sorte_5(t_list *list_a,t_list *list_b);
 void big_sorte(t_list *list_a, t_list *list_b);
 int	*liste_sorte(int *list, int size, t_data *data, int arg);
 void	big_sorte_1(t_list *list_a, t_list *list_b);
+int	if_exit(t_list *a, int table[], int start, int end);
+int	position_max_number(int *table, int size);
+
 #endif

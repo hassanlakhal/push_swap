@@ -6,13 +6,29 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 21:20:55 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/24 10:34:25 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:47:01 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_sort(t_list *tableu,t_list *stack_b)
+void	sort_stack(t_list *tableu, t_list *stack_b)
+{
+	if (tableu->index == 2)
+		swap_a(tableu);
+	else if (tableu->index == 3)
+		sorte_3(tableu, tableu->index);
+	else if (tableu->index == 4)
+		sorte_4(tableu, stack_b);
+	else if (tableu->index == 5)
+		sorte_5(tableu, stack_b);
+	else if (tableu->index >= 6 && tableu->index <= 100)
+		big_sorte(tableu, stack_b);
+	else if (tableu->index >= 6 && tableu->index <= 500)
+		big_sorte_1(tableu, stack_b);
+}
+
+void	check_sort(t_list *tableu, t_list *stack_b)
 {
 	int	i;
 	int	j;
@@ -33,20 +49,7 @@ void	check_sort(t_list *tableu,t_list *stack_b)
 	if (!j)
 		return ;
 	else
-	{
-		if (tableu->index == 2)
-			swap_a(tableu);
-		else if (tableu->index == 3)
-			sorte_3(tableu,tableu->index);
-		else if (tableu->index == 4)
-			sorte_4(tableu,stack_b);
-		else if (tableu->index == 5)
-			sorte_5(tableu,stack_b);
-		else if(tableu->index >= 6 && tableu->index <= 100)
-			big_sorte(tableu,stack_b);
-		else if(tableu->index >= 6 && tableu->index <= 500)
-			big_sorte_1(tableu,stack_b);
-	}
+		sort_stack(tableu,stack_b);
 }
 
 int	number_of_arg(int cont, char **str)
@@ -89,7 +92,7 @@ void	check_string(char *str)
 	}
 }
 
-int	*convert_int(int *tableu, int argc, char *argv[],int k)
+int	*convert_int(int *tableu, int argc, char *argv[], int k)
 {
 	int		i;
 	int		j;
@@ -102,7 +105,7 @@ int	*convert_int(int *tableu, int argc, char *argv[],int k)
 		str = ft_split(argv[i], ' ');
 		if (!str[0])
 		{
-			write(2,"Error\n",6);
+			write(2, "Error\n", 6);
 			exit(0);
 		}
 		j = 0;

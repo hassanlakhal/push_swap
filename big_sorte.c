@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 00:06:15 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/24 10:28:46 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:38:29 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,6 @@ int	if_exit(t_list *a, int table[], int start, int end)
 		i++;
 	}
 	return (0);
-}
-
-static int	position_max_number(int *table, int size)
-{
-	int	i;
-	int	k;
-	int	pos;
-
-	pos = 0;
-	i = 0;
-	k = table[0];
-	while (i < size)
-	{
-		if (table[i] > k)
-		{
-			pos = i;
-			k = table[i];
-		}
-		i++;
-	}
-	return (pos);
 }
 
 void	function_help(t_list *list_a, t_list *list_b)
