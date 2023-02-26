@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:39:53 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/24 10:32:40 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/26 16:43:57 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	*liste_sorte(int *list, int size, t_data *data, int arg)
 {
 	int	*table;
 	int	i;
+
 	data->start = 0;
 	data->end = 0;
 	if (arg == 100)

@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 00:06:15 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/26 15:38:29 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/26 16:43:34 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	big_sorte(t_list *list_a, t_list *list_b)
 	t_data	data;
 	int		*tab;
 
-	tab = liste_sorte(list_a->stack, list_a->index, &data,100);
+	tab = liste_sorte(list_a->stack, list_a->index, &data, 100);
 	while (list_a->index != 0)
 	{
 		function_help_1(list_a, list_b, &data, tab);

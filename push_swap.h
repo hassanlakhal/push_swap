@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 23:58:40 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/26 15:37:44 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/26 16:42:12 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,27 @@ typedef struct intfo
 	int	mid;
 	int	offset;
 	int	size;
-	int			m;
-	int			ma;
-}t_data;
+	int	m;
+	int	ma;
+}		t_data;
 
 void	check_sort(t_list *tableu, t_list *stack_b);
 int		number_of_arg(int cont, char **str);
 void	check_string(char *str);
-int		*convert_int(int *tableu, int argc, char *argv[],int k);
+int		*convert_int(int *tableu, int argc, char *argv[], int k);
 t_list	*alloced_list(int size);
 void	swap_a(t_list *stack_a);
 void	swap_b(t_list *stack_b);
-void	rotation(t_list *stack_a,char c);
-void rrotation(t_list *list,char c);
-void sorte_3(t_list *list,int size);
-void	push(t_list *stack_a, t_list *stack_b,char c);
-void sorte_4(t_list *list_a,t_list *list_b);
-void sorte_5(t_list *list_a,t_list *list_b);
-void big_sorte(t_list *list_a, t_list *list_b);
-int	*liste_sorte(int *list, int size, t_data *data, int arg);
+void	rotation(t_list *stack_a, char c);
+void	rrotation(t_list *list, char c);
+void	sorte_3(t_list *list, int size);
+void	push(t_list *stack_a, t_list *stack_b, char c);
+void	sorte_4(t_list *list_a, t_list *list_b);
+void	sorte_5(t_list *list_a, t_list *list_b);
+void	big_sorte(t_list *list_a, t_list *list_b);
+int		*liste_sorte(int *list, int size, t_data *data, int arg);
 void	big_sorte_1(t_list *list_a, t_list *list_b);
-int	if_exit(t_list *a, int table[], int start, int end);
-int	position_max_number(int *table, int size);
+int		if_exit(t_list *a, int table[], int start, int end);
+int		position_max_number(int *table, int size);
 
 #endif

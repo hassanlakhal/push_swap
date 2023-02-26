@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 21:20:55 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/26 15:47:01 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/26 16:43:14 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	check_sort(t_list *tableu, t_list *stack_b)
 	if (!j)
 		return ;
 	else
-		sort_stack(tableu,stack_b);
+		sort_stack(tableu, stack_b);
 }
 
 int	number_of_arg(int cont, char **str)

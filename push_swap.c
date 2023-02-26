@@ -6,12 +6,11 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 00:02:13 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/26 15:42:45 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/26 16:44:32 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	check_double(int *tableu, int len)
 {
@@ -34,17 +33,7 @@ void	check_double(int *tableu, int len)
 		i++;
 	}
 }
-void	affiche(t_list *a)
-{
-	int	k;
 
-	k = a->index - 1;
-	while (k >= 0)
-	{
-		printf(" %d ", a->stack[k]);
-		k--;
-	}
-}
 int	main(int argc, char *argv[])
 {
 	int		len;
