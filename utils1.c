@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 23:32:47 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/28 20:32:04 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:47:23 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ t_list	*alloced_list(int size)
 void	dispaly_error(void)
 {
 	write(2, "Error\n", 6);
-	system("leaks -list push_swap");
 	exit(0);
 }
