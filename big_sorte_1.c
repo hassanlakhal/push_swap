@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 10:21:02 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/26 15:40:29 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:15:49 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,5 @@ void	big_sorte_1(t_list *list_a, t_list *list_b)
 			data_1.end = data_1.size;
 	}
 	function_help(list_a, list_b, tab);
+	free(tab);
 }

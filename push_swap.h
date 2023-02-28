@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 23:58:40 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/26 16:42:12 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:26:06 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ int		*liste_sorte(int *list, int size, t_data *data, int arg);
 void	big_sorte_1(t_list *list_a, t_list *list_b);
 int		if_exit(t_list *a, int table[], int start, int end);
 int		position_max_number(int *table, int size);
+void	dispaly_error(void);
 
 #endif

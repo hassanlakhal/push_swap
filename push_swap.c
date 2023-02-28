@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 00:02:13 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/26 16:44:32 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:40:26 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,17 @@ void	check_double(int *tableu, int len)
 		while (j < len)
 		{
 			if (tableu[i] == tableu[j])
-			{
-				write(2, "Error\n", 6);
-				exit(0);
-			}
+				dispaly_error();
 			j++;
 		}
 		i++;
 	}
+}
+
+void	free_list(t_list *list)
+{
+	free(list->stack);
+	free(list);
 }
 
 int	main(int argc, char *argv[])
@@ -53,6 +56,8 @@ int	main(int argc, char *argv[])
 			convert_int(stack_a->stack, argc, argv, len);
 			check_double(stack_a->stack, len);
 			check_sort(stack_a, stack_b);
+			free_list(stack_a);
+			free_list(stack_b);
 		}
 		else
 			write(2, "Error\n", 6);

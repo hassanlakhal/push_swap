@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 21:20:55 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/26 16:43:14 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:28:11 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	number_of_arg(int cont, char **str)
 		while (arg[b])
 			b++;
 		len += b;
+		free_result(arg);
 		i++;
 	}
 	return (len);
@@ -84,10 +85,7 @@ void	check_string(char *str)
 		if (str[i] == '-' || str[i] == '+')
 			i++;
 		if (!ft_isdigit(str[i]))
-		{
-			write(2, "Error\n", 6);
-			exit(0);
-		}
+			dispaly_error();
 		i++;
 	}
 }
@@ -104,10 +102,7 @@ int	*convert_int(int *tableu, int argc, char *argv[], int k)
 	{
 		str = ft_split(argv[i], ' ');
 		if (!str[0])
-		{
-			write(2, "Error\n", 6);
-			exit(0);
-		}
+			dispaly_error();
 		j = 0;
 		while (str[j])
 		{
@@ -116,6 +111,7 @@ int	*convert_int(int *tableu, int argc, char *argv[], int k)
 			k--;
 			j++;
 		}
+		free_result(str);
 		i++;
 	}
 	return (tableu);
