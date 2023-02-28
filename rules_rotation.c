@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 01:34:22 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/02/26 16:41:31 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:23:34 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	rrotation(t_list *list, char c)
 	if (!(list->index - 1))
 		return ;
 	tab = malloc(sizeof(int) * list->index);
-	if (tab)
+	if (!tab)
 		return ;
 	while (k < list->index - 1)
 	{
