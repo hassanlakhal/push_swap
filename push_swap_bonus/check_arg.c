@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 21:20:55 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/03/01 17:04:40 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/03/01 18:24:24 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	check_sort(t_list *tableu)
 		i--;
 	}
 	if (!j)
-		write(1,"OK\n",3);
+		write(1, "OK\n", 3);
 	else
-		write(1,"KO\n",3);
+		write(1, "KO\n", 3);
 }
 
 int	number_of_arg(int cont, char **str)

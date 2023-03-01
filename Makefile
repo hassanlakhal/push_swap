@@ -6,11 +6,13 @@
 #    By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 00:01:41 by hlakhal-          #+#    #+#              #
-#    Updated: 2023/03/01 18:15:11 by hlakhal-         ###   ########.fr        #
+#    Updated: 2023/03/01 18:21:50 by hlakhal-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+
+NAME_BONUS = checker
 
 SRCS = push_swap.c check_arg.c utils1.c rules_swap.c rules_rotation.c\
 		sorte_3.c rules_push.c sorte_4.c sorte_5.c big_sorte_utils.c big_sorte.c\
@@ -31,9 +33,9 @@ OBJ1 = $(SRCS_BONUS:.c=.o)
 
 all:push_swap
 
-bonus:push_swap_bonus
+bonus:checker
 
-push_swap_bonus:$(OBJ1)
+ checker:$(OBJ1)
 		@make -sC libft/
 		@$(CC) $(CFLAGS) $(OBJ1) libft/libft.a -o checker
 
@@ -47,6 +49,6 @@ clean:
 
 fclean:	clean
 		@make -sC libft/ fclean
-		@rm -f $(NAME)
+		@rm -f $(NAME) $(NAME_BONUS)
 
-re:		fclean all
+re:		fclean all bonus

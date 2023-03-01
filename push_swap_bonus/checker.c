@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:16:31 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/03/01 18:14:18 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/03/01 18:29:17 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,12 @@ void	check_output(t_list *stack_a, t_list *stack_b)
 			rotation(stack_b);
 		else if (!ft_strncmp(a, "rrb\n", ft_strlen(a)))
 			rrotation(stack_b);
-		a = get_next_line(0);
 		free(a);
+		a = get_next_line(0);
 	}
 	free(a);
 }
+
 int	main(int argc, char *argv[])
 {
 	int		len;
