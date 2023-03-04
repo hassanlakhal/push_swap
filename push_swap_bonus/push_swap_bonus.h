@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:16:56 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/03/01 18:23:51 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:00:24 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	swap_b(t_list *stack_b);
 void	push(t_list *stack_a, t_list *stack_b);
 void	rrotation(t_list *list);
 void	rotation(t_list *list);
-void	check_sort(t_list *tableu);
+void	check_sort(t_list *tableu, t_list *stack_b);
 int		number_of_arg(int cont, char **str);
 void	check_string(char *str);
 int		*convert_int(int *tableu, int argc, char *argv[], int k);
